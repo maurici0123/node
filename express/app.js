@@ -10,7 +10,7 @@ app.get('/test', function (req, res) {
 })
 
 app.get('/ola/:nome/:idade', function (req, res) {
-	res.send(`ola ${req.params.nome}`)
+	res.send(`ola ${req.params.nome} você tem ${req.params.idade} anos`)
 })
 
 app.listen(5566, function () {
