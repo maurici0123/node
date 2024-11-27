@@ -14,7 +14,10 @@ app.use(bodyParser.json())
 
 //rotas
 app.get('/', function (req, res) {
-	res.render('home')
+	Post.findAll().then(function (posts) {
+		console.log(posts)
+		res.render('home', { posts: posts })
+	})
 })
 
 app.get('/cad', function (req, res) {
