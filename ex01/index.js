@@ -3,8 +3,8 @@
 // require('./modules/path')
 // require('./modules/fs')
 // require('./modules/http')
-//require('./modules/express')
 require("dotenv").config()
 const coneectToDatabase = require('./src/database/connect')
 
+require('./modules/express')
 coneectToDatabase()
