@@ -17,7 +17,7 @@ function listarArquivos(raiz) {
 		} else {
 			data[aux] = {
 				nome: path.basename(caminho),
-				caminho: caminho,
+				caminho: path.posix.join(...caminho.split(path.sep)),
 				tamanho: `${stats.size} Bytes`,
 			}
 			aux++
