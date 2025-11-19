@@ -26,4 +26,3 @@ function listarArquivos(raiz) {
 }
 
 listarArquivos(raiz)
-console.log(data)
