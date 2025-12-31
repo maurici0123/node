@@ -1,17 +1,18 @@
 import 'dotenv/config'
 import express from 'express'
 import { PrismaClient } from './generated/prisma/client.ts'
+import cors from 'cors'
 
 const prisma = new PrismaClient()
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 app.get('/users', async (req, res) => {
-  
   const users = await prisma.user.findMany()
 
-  res.json(users)
+  res.status(200).json(users)
 })
 
 app.post('/users', async (req, res) => {
@@ -35,7 +36,7 @@ app.put('/users/:id', async (req, res) => {
     },
     data: {
       email: req.body.email,
-      name: req.body.name,        
+      name: req.body.name,
       age: req.body.age
     }
   })
@@ -51,7 +52,7 @@ app.delete('/users/:id', async (req, res) => {
     }
   })
 
-  res.json({message: 'User deleted'})
+  res.json({ message: 'User deleted' })
 })
 
 app.listen(3000)
