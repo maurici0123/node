@@ -55,4 +55,4 @@ app.delete('/users/:id', async (req, res) => {
   res.json({ message: 'User deleted' })
 })
 
-app.listen(3000)
+app.listen(process.env.PORT)
